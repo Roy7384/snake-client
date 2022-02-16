@@ -22,6 +22,7 @@ const setupInput = function(conn) {
       const input = move[keys.indexOf(data)];
       connection.write(input);
     }
+    connection.write(`Say: ${data}`);
   };
   
   stdin.on('data', handleUserInput);
