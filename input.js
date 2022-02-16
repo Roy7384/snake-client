@@ -1,3 +1,4 @@
+const {keyBinds} = require('./constant');
 let connection;
 
 // setup interface to handle user input from stdin
@@ -16,12 +17,7 @@ const setupInput = function(conn) {
       console.log('Thanks for playing snake, ciao!');
       process.exit();
     }
-    const keys = ['w', 'a', 's', 'd'];
-    const move = ['Move: up', 'Move: left', 'Move: down', 'Move: right'];
-    if (keys.includes(data)) {
-      const input = move[keys.indexOf(data)];
-      connection.write(input);
-    }
+    connection.write(keyBinds[data]);
     connection.write(`Say: ${data}`);
   };
   
